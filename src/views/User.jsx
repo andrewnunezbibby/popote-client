@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import NavBar from "./../components/NavBar";
+import NavBar from "./../Components/NavBar";
 import "../styles/user.css";
-import UserForm from "../components/UserForm";
-import RecipeCardXs from "./../components/RecipeCardXs";
-import APIHandler from "../api/APIHandler";
+import UserForm from "../Components/UserForm";
+import RecipeCardXs from "./../Components/RecipeCardXs";
+import APIHandler from "../Api/APIHandler";
 
 export default class User extends Component {
   state = {

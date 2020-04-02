@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from "./../components/NavBar";
+import NavBar from "./../Components/NavBar";
 import "../styles/home.css";
 // import FilterList from "./../components/FilterList";
 import HomeSecondSection from "./HomeSecondSection";

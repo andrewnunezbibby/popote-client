@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./../styles/navbar.css";
 import { useAuth } from "../auth/useAuth";
-import Signout from "../components/Signout";
+import Signout from "../Components/Signout";
 import UserContext from "../auth/UserContext";
 import logo from "../images/logo.png";
 

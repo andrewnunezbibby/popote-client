@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import tesseract from "../Tesseract/test.js";
-import Loader from "../components/Loader.jsx";
-import APIHandler from "../api/APIHandler";
+import Loader from "../Components/Loader.jsx";
+import APIHandler from "../Api/APIHandler";
 
 export default class scanTicket extends Component {
   state = {
@@ -17,7 +17,6 @@ export default class scanTicket extends Component {
   componentDidMount() {
     APIHandler.get("/ingredients")
       .then(apiRes => {
-       
         this.setState({ ingredientsInDb: apiRes.data });
       })
       .catch(apiErr => console.log(apiErr));
@@ -100,7 +99,6 @@ export default class scanTicket extends Component {
   searchForRecipes = e => {
     e.preventDefault();
 
-  
     var ingredientsTosend = [];
     for (let i = 0; i < this.state.matchIngredients.length; i++) {
       if (this.state.matchIngredients[i].ingredientChecked)
@@ -111,7 +109,6 @@ export default class scanTicket extends Component {
       ingredients: ingredientsTosend
     })
       .then(apiRes => {
-      
         this.props.history.push("/recipes", {
           recipes: apiRes.data
         });

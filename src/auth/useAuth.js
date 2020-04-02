@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import APIHandler from "../api/APIHandler";
+import APIHandler from "../Api/APIHandler";
 import UserContext from "./UserContext";
 
 export const useAuth = () => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import APIHandler from "../api/APIHandler";
+import APIHandler from "../Api/APIHandler";
 import "../styles/autocomplete.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

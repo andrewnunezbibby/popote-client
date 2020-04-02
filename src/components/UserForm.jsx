@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import APIHandler from "../api/APIHandler";
+import APIHandler from "../Api/APIHandler";
 import "../styles/user-form.css";
-import CustomInputFile from "../components/IconAvatarAdmin";
+import CustomInputFile from "../Components/IconAvatarAdmin";
 
 export default class UserForm extends Component {
   state = {

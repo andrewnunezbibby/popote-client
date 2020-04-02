@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import APIHandler from "../api/APIHandler";
+import APIHandler from "../Api/APIHandler";
 import UserContext from "../auth/UserContext";
 import { withRouter } from "react-router-dom";
 

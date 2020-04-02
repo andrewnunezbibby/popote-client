@@ -10,7 +10,7 @@ import Login from "./views/Login";
 import Signup from "./views/Signup";
 import NotFound from "./views/NotFound";
 import tesseract from "./Tesseract/test.js";
-import spoonacular from "./api/APISpoonacular.js";
+import spoonacular from "./Api/APISpoonacular.js";
 import HomeSecondSection from "./views/HomeSecondSection";
 import { browserHistory } from "react-router";
 import WithUser from "./views/WithUser";

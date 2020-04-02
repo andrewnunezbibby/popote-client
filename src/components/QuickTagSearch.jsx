@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./../styles/quick-tag-search.css";
-import APIHandler from "../api/APIHandler";
+import APIHandler from "../Api/APIHandler";
 
 export default class QuickTagSearch extends Component {
   state = {

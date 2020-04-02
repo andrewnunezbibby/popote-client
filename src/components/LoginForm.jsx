@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./../styles/login.css";
-import APIHandler from "./../api/APIHandler";
+import APIHandler from "./../Api/APIHandler";
 import UserContext from "../auth/UserContext";
 import { Link, withRouter } from "react-router-dom";
 

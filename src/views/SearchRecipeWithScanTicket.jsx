@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ScanTicket from "../components/ScanTicket";
-import NavBar from "../components/NavBar";
+import ScanTicket from "../Components/ScanTicket";
+import NavBar from "../Components/NavBar";
 import "../styles/scanTicket.css";
 
 export default class SearchRecipeWithScanTicket extends Component {

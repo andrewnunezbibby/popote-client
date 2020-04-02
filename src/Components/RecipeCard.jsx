@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import apiHandler from "../api/APIHandler";
+import apiHandler from "../Api/APIHandler";
 
 export default class RecipeCard extends Component {
   state = { isLiked: true };

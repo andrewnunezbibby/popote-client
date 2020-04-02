@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NavBar from "../components/NavBar";
-import APIHandler from "../api/APIHandler";
-import RecipeCardM from "../components/RecipeCardM";
+import NavBar from "../Components/NavBar";
+import APIHandler from "../Api/APIHandler";
+import RecipeCardM from "../Components/RecipeCardM";
 import "../styles/recipes.css";
 // when you are loggedIn we retrieve the full list of recipe , we should be able to see the one already in our favorite
 // only for the one that are not in favorite we should be able to add them  add sign visible for the one that are not in favorite

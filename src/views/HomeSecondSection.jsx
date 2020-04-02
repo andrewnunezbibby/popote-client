@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import QuickTagSearch from "../components/QuickTagSearch";
-import SearchByIngredient from "../components/SearchByIngredient";
-import NavBar from "../components/NavBar";
-import AutoComplete from "../components/AutoComplete";
-import APIHandler from "../api/APIHandler";
+import QuickTagSearch from "../Components/QuickTagSearch";
+import SearchByIngredient from "../Components/SearchByIngredient";
+import NavBar from "../Components/NavBar";
+import AutoComplete from "../Components/AutoComplete";
+import APIHandler from "../Api/APIHandler";
 import "../styles/home.css";
 
 export default class HomeSecondSection extends Component {

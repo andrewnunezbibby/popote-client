@@ -1,5 +1,5 @@
 import React, { Component, useContext, useState } from "react";
-import apiHandler from "../api/APIHandler";
+import apiHandler from "../Api/APIHandler";
 import UserContext from "../auth/UserContext";
 import { Link, withRouter } from "react-router-dom";
 import StarClickable from "./RatingStarsClickable";
@@ -74,30 +74,36 @@ export default withRouter(function ReviewForm({
   return (
     // <div id="review-global-area">
     //   <div className="container">
-        // <div className="review-area"> 
-          <div className="left-side">
-            <div className="rate-title">
-              <h2>Review This Dish!</h2>
-            </div>
-            <form className="form-review" onChange={handleChange} onSubmit={handleSubmit}>
-              <label htmlFor="rating">Give a rate!</label>
-              <div id="rating">{stars}</div>
+    // <div className="review-area">
+    <div className="left-side">
+      <div className="rate-title">
+        <h2>Review This Dish!</h2>
+      </div>
+      <form
+        className="form-review"
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="rating">Give a rate!</label>
+        <div id="rating">{stars}</div>
 
-              <label htmlFor="comment">Leave a comment</label>
-              <textarea
-                className="textArea"
-                name="comment"
-                id="comment"
-                cols="30"
-                rows="10"
-                placeholder="Tell Us More!"
-              ></textarea>
-              <div className="button-rate">
-                <button className="btn-rate" type="submit">RATE IT</button>
-              </div>
-            </form>
-          </div>
-        // </div>
+        <label htmlFor="comment">Leave a comment</label>
+        <textarea
+          className="textArea"
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="10"
+          placeholder="Tell Us More!"
+        ></textarea>
+        <div className="button-rate">
+          <button className="btn-rate" type="submit">
+            RATE IT
+          </button>
+        </div>
+      </form>
+    </div>
+    // </div>
     //   </div>
     // </div>
   );
