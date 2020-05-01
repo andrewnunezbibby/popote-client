@@ -4,7 +4,7 @@ import NavBar from "../Components/NavBar";
 export default function NotFound() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <h1>The road doesn't exist bro</h1>
     </div>
   );

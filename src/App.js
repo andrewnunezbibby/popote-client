@@ -22,6 +22,7 @@ import { ProtectedRoute } from "./auth/ProtectedRoute";
 
 import "./App.css";
 import SearchRecipeWithScanTicket from "./views/SearchRecipeWithScanTicket";
+import NavBar from "./Components/NavBar";
 
 function App() {
   const { isLoading, currentUser: toto } = useAuth();
@@ -31,7 +32,7 @@ function App() {
 
   const UserContextValue = {
     currentUser,
-    setCurrentUser
+    setCurrentUser,
   };
   /*var sp = new spoonacular();
   //get all recipes that contains cheese restrict to 2 results
@@ -51,37 +52,43 @@ function App() {
     <UserContext.Provider value={UserContextValue}>
       {isLoading ? null : (
         <div className="App">
-          <Switch>
-            <Route
-              exact
-              path="/recipes"
-              render={props => (
-                <WithUser {...props} component={Recipes}></WithUser>
-              )}
-            />
-            <Route
-              path="/favorites"
-              render={props => (
-                <WithUser {...props} component={Favorites}></WithUser>
-              )}
-            />
-            <Route
-              exact
-              path="/user/:id"
-              render={props => (
-                <WithUser {...props} component={User}></WithUser>
-              )}
-            />
+          <NavBar />
+          <div className="home-container">
+            <Switch>
+              <Route
+                exact
+                path="/recipes"
+                render={(props) => (
+                  <WithUser {...props} component={Recipes}></WithUser>
+                )}
+              />
+              <Route
+                path="/favorites"
+                render={(props) => (
+                  <WithUser {...props} component={Favorites}></WithUser>
+                )}
+              />
+              <Route
+                exact
+                path="/user/:id"
+                render={(props) => (
+                  <WithUser {...props} component={User}></WithUser>
+                )}
+              />
 
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/scanticket" component={SearchRecipeWithScanTicket} />
-            <Route path="/recipe/:id" component={Recipe} />
-            <Route path="/signout" component={Home} />
-            <Route path="/search" component={HomeSecondSection} />
-            <Route exact path="/" component={Home} />
-            <Route path="*" component={NotFound} />
-          </Switch>
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route
+                path="/scanticket"
+                component={SearchRecipeWithScanTicket}
+              />
+              <Route path="/recipe/:id" component={Recipe} />
+              <Route path="/signout" component={Home} />
+              <Route path="/search" component={HomeSecondSection} />
+              <Route exact path="/" component={Home} />
+              <Route path="*" component={NotFound} />
+            </Switch>
+          </div>
         </div>
       )}
     </UserContext.Provider>

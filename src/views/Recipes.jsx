@@ -12,20 +12,20 @@ export default class Recipes extends Component {
     //userId: "5e5d459abc53780b88933080", //this will be retrieved from session after login
     recipes: [],
     favoritesRecipes: [],
-    isLoggedIn: false
+    isLoggedIn: false,
   };
 
   componentDidMount() {
     this.setState({ recipes: this.props.location.state.recipes });
     if (this.props.user) {
       APIHandler.get(`/favorites/${this.props.user._id}`)
-        .then(apiRes => {
+        .then((apiRes) => {
           if (apiRes.data) {
             this.setState({ favoritesRecipes: apiRes.data.favorites });
             if (this.state.favoritesRecipes.length > 0) this.recreateRecipe();
           }
         })
-        .catch(apiErr => console.log(apiErr));
+        .catch((apiErr) => console.log(apiErr));
     }
     if (this.props.user) this.setState({ isLoggedIn: true });
   }
@@ -37,7 +37,7 @@ export default class Recipes extends Component {
     var allRecipes = this.state.recipes;
     var favoriteRecipes = this.state.favoritesRecipes;
 
-    allRecipes.map(function(recipe, index) {
+    allRecipes.map(function (recipe, index) {
       var found = false;
 
       for (let i = 0; i < favoriteRecipes.length; i++) {
@@ -54,7 +54,7 @@ export default class Recipes extends Component {
 
   handleFavorite = (title, id, action) => {
     var recipescopy = [...this.state.recipes];
-    this.state.recipes.map(function(recipe, index) {
+    this.state.recipes.map(function (recipe, index) {
       if (recipe._id === id) {
         var recipeTochange = recipe;
         recipeTochange.favorite = !recipe.favorite;
@@ -67,37 +67,40 @@ export default class Recipes extends Component {
     // we can add a recipe to our favorite from the recipes page
     if (action === "delete") {
       APIHandler.delete(`/favorites/${this.props.user._id}/${id}`, { id })
-        .then(apiRes => {})
-        .catch(apiErr => console.log(apiErr));
+        .then((apiRes) => {})
+        .catch((apiErr) => console.log(apiErr));
     } else if (action === "add") {
       APIHandler.patch(`/favorites/${this.props.user._id}/${id}`, { id })
-        .then(apiRes => {})
-        .catch(apiErr => console.log(apiErr));
+        .then((apiRes) => {})
+        .catch((apiErr) => console.log(apiErr));
     }
     //faire un setstate pour voir celui au favori
   };
 
   render() {
-    console.log("render", this.state.isLoggedIn);
+    // console.log("render", this.state.isLoggedIn);
+    console.log("LENGTH", this.state.recipes.length);
     return (
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className="space"></div>
         <div className="container">
           <div className="recipes-container">
-            {this.state.recipes.map((recipe, i) => (
-              <div key={i} className="recipes-element">
-                <RecipeCardM
-                  title={recipe.title}
-                  image={recipe.image}
-                  readyTime={recipe.readyTime}
-                  id={recipe._id}
-                  isLoggedIn={this.state.isLoggedIn}
-                  favorite={recipe.favorite}
-                  clbk={this.handleFavorite}
-                ></RecipeCardM>
-              </div>
-            ))}
+            {this.state.recipes.length > 0
+              ? this.state.recipes.map((recipe, i) => (
+                  <div key={i} className="recipes-element">
+                    <RecipeCardM
+                      title={recipe.title}
+                      image={recipe.image}
+                      readyTime={recipe.readyTime}
+                      id={recipe._id}
+                      isLoggedIn={this.state.isLoggedIn}
+                      favorite={recipe.favorite}
+                      clbk={this.handleFavorite}
+                    ></RecipeCardM>
+                  </div>
+                ))
+              : "No Recipes for that Ingredient"}
           </div>
         </div>
       </div>

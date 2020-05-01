@@ -14,17 +14,17 @@ export default class Favorites extends Component {
   state = {
     //userId: "5e5d459abc53780b88933080", //this will be retrieved from session after login
     listOfFavorites: [],
-    isLoggedIn: false
+    isLoggedIn: false,
   };
 
   componentDidMount() {
     if (this.props.user) {
       APIHandler.get(`/favorites/${this.props.user._id}`)
-        .then(apiRes => {
+        .then((apiRes) => {
           if (apiRes.data)
             this.setState({ listOfFavorites: apiRes.data.favorites });
         })
-        .catch(apiErr => console.log(apiErr));
+        .catch((apiErr) => console.log(apiErr));
 
       this.setState({ isLoggedIn: true });
     }
@@ -33,20 +33,20 @@ export default class Favorites extends Component {
   handleFavorite = (title, id) => {
     //delete a favorite
     const favoriteUpdate = [...this.state.listOfFavorites].filter(
-      f => f.title !== title
+      (f) => f.title !== title
     );
     this.setState({
-      listOfFavorites: favoriteUpdate
+      listOfFavorites: favoriteUpdate,
     });
     APIHandler.delete(`/favorites/${this.props.user._id}/${id}`, { id })
-      .then(apiRes => {})
-      .catch(apiErr => console.log(apiErr));
+      .then((apiRes) => {})
+      .catch((apiErr) => console.log(apiErr));
   };
   render() {
     console.log(this.props.user && this.props.user._id, "these are props");
     return (
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
 
         <div className="space"></div>
         <div className="container">

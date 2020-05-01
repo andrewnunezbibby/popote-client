@@ -12,7 +12,7 @@ export default class AutoComplete extends Component {
     showSuggestions: false,
     userInput: "",
     suggestions: "",
-    ingredientstToSearch: [],
+    ingredientsToSearch: [],
     recipesFound: []
   };
   static defaultProperty = {
@@ -41,9 +41,9 @@ export default class AutoComplete extends Component {
       showSuggestions: false,
       userInput: "" /*e.currentTarget.innerText*/
     });
-    var copyingredientstToSearch = [...this.state.ingredientstToSearch];
-    copyingredientstToSearch.push(e.currentTarget.innerText);
-    this.setState({ ingredientstToSearch: copyingredientstToSearch });
+    var copyingredientsToSearch = [...this.state.ingredientsToSearch];
+    copyingredientsToSearch.push(e.currentTarget.innerText);
+    this.setState({ ingredientsToSearch: copyingredientsToSearch });
   };
 
   onKeyDown = e => {
@@ -80,23 +80,24 @@ export default class AutoComplete extends Component {
   removeFromListIngredient = e => {
     e.preventDefault();
 
-    var copyingredientstToSearch = [...this.state.ingredientstToSearch];
+    var copyingredientsToSearch = [...this.state.ingredientsToSearch];
 
-    const filtered = copyingredientstToSearch.filter(
+    const filtered = copyingredientsToSearch.filter(
       ingredient =>
         ingredient.toLowerCase() === e.currentTarget.name.toLowerCase()
     );
 
-    this.setState({ ingredientstToSearch: filtered });
+    this.setState({ ingredientsToSearch: filtered });
   };
 
   searchForRecipe = e => {
     e.preventDefault();
 
     APIHandler.get("/recipes/ingredients", {
-      ingredients: this.state.ingredientstToSearch
+      ingredients: this.state.ingredientsToSearch
     })
       .then(apiRes => {
+        if (apiRes.data.length === 0) alert("no recipes found");
         this.props.history.push("/recipes", {
           recipes: apiRes.data
         });
@@ -146,7 +147,7 @@ export default class AutoComplete extends Component {
           {suggestionsListComponent}
           <div>
             <ul>
-              {this.state.ingredientstToSearch.map((ingredient, i) => (
+              {this.state.ingredientsToSearch.map((ingredient, i) => (
                 <li key={i}>
                   {ingredient}
                   <button

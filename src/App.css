@@ -1,25 +1,26 @@
 @import "./styles/reset.min.css";
 @import "./styles/home.css";
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+/* @import url("./basic-grid.css"); */
 /* background-color: #1c2023 body's background
 second background color: #22282c
 background color input form : #354147
 button orange color: #D84A3B */
-
 body {
-    /* background-color: #100e17; */
-    background-color: #1c2023;
-    font-family: 'Poppins';
-    /* background-image: linear-gradient(315deg, #192419 0%, #211f1f 74%); */
-    
+  /* background-color: #100e17; */
+  background-color: #1c2023;
+  font-family: "Poppins";
+  font-size: 100%;
+  z-index: 0;
+  /* background-image: linear-gradient(315deg, #192419 0%, #211f1f 74%); */
 }
 
 .container {
-    width: 1280px;
-    margin: 0 auto
+  width: 1280px;
+  margin: auto;
+  z-index: 0;
 }
 
 ul li {
-    list-style: none;
+  list-style: none;
 }

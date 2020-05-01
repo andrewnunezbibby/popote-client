@@ -9,24 +9,24 @@ import "./../styles/rating.css";
 export default class Recipe extends Component {
   state = {
     recipe: "",
-    reviews: []
+    reviews: [],
   };
 
   componentDidMount() {
     APIHandler.get(`/recipe/${this.props.match.params.id}`)
-      .then(apiRes => {
+      .then((apiRes) => {
         this.setState({ recipe: apiRes.data });
       })
-      .catch(apiErr => console.log(apiErr));
+      .catch((apiErr) => console.log(apiErr));
 
     APIHandler.get(`/reviews/${this.props.match.params.id}`)
-      .then(apiRes => {
+      .then((apiRes) => {
         this.setState({ reviews: apiRes.data.dbRes });
       })
-      .catch(apiErr => console.log(apiErr));
+      .catch((apiErr) => console.log(apiErr));
   }
 
-  addNewReview = review => {
+  addNewReview = (review) => {
     const copy = [...this.state.reviews];
     copy.push(review);
     this.setState({ reviews: copy });
@@ -35,7 +35,7 @@ export default class Recipe extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <RecipeCardXL recipe={this.state.recipe} />
         <div className="review-area">
           <div className="container">

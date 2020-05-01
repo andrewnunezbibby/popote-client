@@ -9,23 +9,23 @@ export default class User extends Component {
   state = {
     //get the Userid from the session , hardcoded for the moment to test the code
     //userId: "5e5d459abc53780b88933080",
-    listOfFavorites: []
+    listOfFavorites: [],
   };
 
   componentDidMount() {
     if (this.props.user) {
       APIHandler.get(`/favorites/${this.props.user._id}`)
-        .then(apiRes => {
+        .then((apiRes) => {
           if (apiRes.data)
             this.setState({ listOfFavorites: apiRes.data.favorites });
         })
-        .catch(apiErr => console.log(apiErr));
+        .catch((apiErr) => console.log(apiErr));
     }
   }
   render() {
     return (
       <div className="user-container">
-        <NavBar />
+        {/* <NavBar /> */}
         <div className="container">
           <div className="user-space">
             <div className="left-section">

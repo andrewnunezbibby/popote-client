@@ -11,10 +11,10 @@ export default class Signup extends Component {
     firstname: "Pierre",
     lastname: "Turtle",
     email: "admin@popote.io",
-    password: "12345"
+    password: "12345",
   };
 
-  handleSubmit = async e => {
+  handleSubmit = async (e) => {
     e.preventDefault();
 
     const fd = new FormData();
@@ -35,11 +35,11 @@ export default class Signup extends Component {
     }
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleImage = e => {
+  handleImage = (e) => {
     // console.log("Signup@handle image", e.target.files[0]);
     this.setState({ avatar: e.target.files[0] }, () => {
       const reader = new FileReader();
@@ -56,7 +56,7 @@ export default class Signup extends Component {
     const { email, password, lastname, firstname, tmpAvatar } = this.state;
     return (
       <>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className="form-area">
           <div className="container">
             <form onChange={this.handleChange} onSubmit={this.handleSubmit}>

@@ -9,22 +9,22 @@ import "../styles/home.css";
 export default class HomeSecondSection extends Component {
   state = {
     ingredientsInDb: "",
-    recipesFound: []
+    recipesFound: [],
   };
 
   componentDidMount() {
     APIHandler.get("/ingredients")
-      .then(apiRes => {
+      .then((apiRes) => {
         this.setState({ ingredientsInDb: apiRes.data });
       })
-      .catch(apiErr => console.log(apiErr));
+      .catch((apiErr) => console.log(apiErr));
   }
 
   render() {
     return (
       <>
         <div id="home-second-page">
-          <NavBar />
+          {/* <NavBar /> */}
           <div className="container">
             <div className="marketing-question">
               <span>Which ingredient do you have ?</span>
